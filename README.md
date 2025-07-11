@@ -7,3 +7,4 @@ How to use:
 4.) Install the app
 5.) Open the app
 6.) Select a version and enjoy!
+This Project is in Alpha, so there will e lots of glitches.
