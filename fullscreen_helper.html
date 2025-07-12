@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullscreen Helper</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+        .key-info {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1>🎮 Eaglercraft Fullscreen Helper</h1>
+        <p>Use these controls to manage fullscreen mode in your game:</p>
+    </div>
+    
+    <div class="key-info">
+        <h3>Keyboard Shortcuts:</h3>
+        <p><strong>F11</strong> - Toggle Fullscreen (if supported by your browser)</p>
+        <p><strong>Alt + Enter</strong> - Alternative fullscreen toggle</p>
+        <p><strong>Escape</strong> - Exit fullscreen</p>
+    </div>
+    
+    <div>
+        <button class="button" onclick="toggleFullscreen()">Toggle Fullscreen</button>
+        <button class="button" onclick="goToGame()">Go to Game</button>
+    </div>
+    
+    <div class="info">
+        <p><strong>Note:</strong> Fullscreen support depends on your browser and the game's implementation.</p>
+        <p>If F11 doesn't work, try Alt+Enter or use the button above.</p>
+    </div>
+
+    <script>
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable fullscreen:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function goToGame() {
+            // This would redirect to the actual game
+            // For now, just show a message
+            alert('Navigate to your Eaglercraft game and use F11 for fullscreen!');
+        }
+        
+        // Listen for F11 key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F11') {
+                event.preventDefault();
+                toggleFullscreen();
+            }
+        });
+        
+        // Listen for Alt+Enter
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key === 'Enter') {
+                event.preventDefault();
+                toggleFullscreen();
+            }
+        });
+    </script>
+</body>
+</html> 
